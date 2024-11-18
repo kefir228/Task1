@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 87vh;
+}
+.container .list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.container .list .list-item {
+  padding: 0.5rem 1rem;
+  background-color: #f9f9f9;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+.container .list .list-item:hover {
+  background-color: #f0f0f0;
+}
+.container .list .input-field {
+  width: 100%;
+}
+.container .list .input-field label {
+  color: #666;
+}
+.container .list .input-field .MuiOutlinedInput-root fieldset {
+  border-color: #ccc;
+}
+.container .list .input-field .MuiOutlinedInput-root:hover fieldset {
+  border-color: #999;
+}
+.container .list .input-field .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: #1976d2;
+}
+.container .list .input-field .add-button,
+.container .list .input-field .delete-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.container .list .input-field .add-button.add-button,
+.container .list .input-field .delete-button.add-button {
+  background-color: #3f51b5;
+  color: #ffffff;
+}
+.container .list .input-field .add-button.add-button:hover,
+.container .list .input-field .delete-button.add-button:hover {
+  background-color: #303f9f;
+}/*# sourceMappingURL=List.css.map */
