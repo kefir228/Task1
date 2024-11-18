@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/kefir228/Task1/static/css/main.b97233d6.css",
-    "main.js": "/kefir228/Task1/static/js/main.cec511e9.js",
-    "index.html": "/kefir228/Task1/index.html",
-    "main.b97233d6.css.map": "/kefir228/Task1/static/css/main.b97233d6.css.map",
-    "main.cec511e9.js.map": "/kefir228/Task1/static/js/main.cec511e9.js.map"
+    "main.css": "/Task1/static/css/main.b97233d6.css",
+    "main.js": "/Task1/static/js/main.cec511e9.js",
+    "index.html": "/Task1/index.html",
+    "main.b97233d6.css.map": "/Task1/static/css/main.b97233d6.css.map",
+    "main.cec511e9.js.map": "/Task1/static/js/main.cec511e9.js.map"
   },
   "entrypoints": [
     "static/css/main.b97233d6.css",
