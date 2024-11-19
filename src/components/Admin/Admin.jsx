@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import './Admin.scss'
 import { useDispatch, useSelector } from "react-redux";
-import { selectAdminProps, setPostDogSelected, addDogComponent,removeDogComponent } from "./adminSlice";
+import { selectAdminProps, setPostDogSelected, addDogComponent, removeDogComponent } from "./adminSlice";
 import { setAnimalType } from "../Edit/editSlice";
 import { Typography, Select, MenuItem, Button, FormControl, InputLabel } from '@mui/material';
 
@@ -25,7 +24,7 @@ export const AdminComponent = () => {
         if (selectedOption === 'dog') {
             dispatch(setPostDogSelected(true))
             dispatch(addDogComponent())
-        } 
+        }
         setSelectedOption('')
     }
 
@@ -34,17 +33,44 @@ export const AdminComponent = () => {
     }
 
     return (
-        <div className="admin-container">
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px',
+                padding: '16px',
+                maxWidth: '500px',
+                margin: '0 auto',
+                minHeight: '70vh', 
+                justifyContent: 'center',
+            }}
+        >
             {adminProps.map((prop) => {
                 if (prop.id === 'title') {
                     return <Typography variant="h4"
-                        key={prop.id}>{prop.label}
+                        key={prop.id}
+                        sx={{
+                            textAlign: 'center',
+                            marginBottom: '16px',
+                        }}
+                    >
+                        {prop.label}
                     </Typography>;
                 }
                 if (prop.id === 'questionButton' || prop.id === 'postButton') {
                     return (
-                        <div className="admin-buttons">
+                        <div
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                            }}
+                        >
                             <Button
+                                sx={{
+                                    minWidth: '150px',
+                                    fontSize: '0.9rem',
+                                    padding: '8px 16px',
+                                }}
                                 variant="contained"
                                 color="primary"
                                 key={prop.id}
@@ -57,12 +83,21 @@ export const AdminComponent = () => {
                 }
             })}
             {create && (
-                <FormControl className="form-control">
+                <FormControl
+                    sx={{
+                        width: '100%',
+                        maxWidth: '300px',
+                        margin: '0 auto',
+                    }}
+                >
                     <InputLabel>Select Option</InputLabel>
                     <Select
                         value={selectedOption}
                         label="Select Option"
                         onChange={handleOptionChange}
+                        sx={{
+                            width: '100%',
+                        }}
                     >
                         <MenuItem value="dog">Dog</MenuItem>
                         <MenuItem value="none">None</MenuItem>

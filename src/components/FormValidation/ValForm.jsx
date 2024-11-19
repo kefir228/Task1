@@ -1,5 +1,4 @@
 import React from "react";
-import './ValForm.scss'
 import { useMain } from "./useMain";
 import { Typography, List, ListItem, Select, MenuItem, TextField, Button } from '@mui/material';
 
@@ -25,22 +24,48 @@ export const ValForm = ({ items }) => {
     };
 
     return (
-        <form onSubmit={onSubmit} className="custom-form">
-            <List className="custom-list">
+        <form onSubmit={onSubmit}>
+            <List
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: '#f5f5f5',
+                    boxShadow: 1,
+                    gap: 2,
+                    padding: 2,
+                    width: '100%',
+                    maxWidth: 500,
+                    margin: '0 auto',
+                    minHeight: '70vh',
+                    justifyContent: 'center',
+                    boxSizing: 'border-box',
+                    overflow: 'hidden'
+                }}
+            >
                 {items.map((item) => (
-                    <ListItem key={item.id} className="custom-list-item">
+                    <ListItem key={item.id}>
                         {item.type === "button" ? (
                             <Button
                                 type="submit"
                                 variant="contained"
                                 color={item.color || "primary"}
                                 fullWidth
-                                className="custom-button"
+                                sx={{
+                                    fontSize: '1rem',
+                                    padding: '10px',
+                                }}
                             >
                                 {item.label}
                             </Button>
                         ) : item.id === "title" ? (
-                            <Typography variant="h2"  className="custom-title">{item.label}</Typography>
+                            <Typography variant="h2"
+                                sx={{
+                                    textAlign: 'center',
+                                    fontSize: { xs: '1.5rem', sm: '2rem' },
+                                    marginBottom: 2,
+                                }}>
+                                {item.label}
+                            </Typography>
                         ) : (
                             <TextField
                                 label={item.label}
@@ -48,20 +73,20 @@ export const ValForm = ({ items }) => {
                                 variant="outlined"
                                 fullWidth
                                 name={item.id}
-                                className="custom-text-field"
+
                                 value={
                                     item.id === "inputName"
                                         ? name
                                         : item.id === "inputEmail"
-                                        ? email
-                                        : password
+                                            ? email
+                                            : password
                                 }
                                 onChange={
                                     item.id === "inputName"
                                         ? handleNameChange
                                         : item.id === "inputEmail"
-                                        ? handleEmailChange
-                                        : handlePasswordChange
+                                            ? handleEmailChange
+                                            : handlePasswordChange
                                 }
                                 error={
                                     (item.id === "inputName" && !isNameValid) ||
@@ -72,21 +97,29 @@ export const ValForm = ({ items }) => {
                                     (item.id === "inputName" && !isNameValid)
                                         ? "The name must be at least 3 characters long"
                                         : (item.id === "inputEmail" && !isEmailValid)
-                                        ? "Enter a valid email, for example: example@mail.com"
-                                        : (item.id === "inputPassword" && !isPasswordValid)
-                                        ? "Password must contain at least 8 characters, including uppercase and lowercase letters"
-                                        : ""
+                                            ? "Enter a valid email, for example: example@mail.com"
+                                            : (item.id === "inputPassword" && !isPasswordValid)
+                                                ? "Password must contain at least 8 characters, including uppercase and lowercase letters"
+                                                : ""
                                 }
+                                sx={{
+                                    padding: '0',
+                                    marginBottom: 2,
+                                    fontSize: '1rem',
+                                }}
                             />
                         )}
                     </ListItem>
                 ))}
-                 <ListItem className="custom-list-item">
+                <ListItem>
                     <Select
                         value={role}
                         onChange={handleRoleChange}
                         fullWidth
-                        className="custom-select"
+                        sx={{
+                            marginBottom: 2,
+                            fontSize: '1rem',
+                        }}
                     >
                         <MenuItem value="" disabled>
                             Select Role
@@ -95,13 +128,16 @@ export const ValForm = ({ items }) => {
                         <MenuItem value="admin">Admin</MenuItem>
                     </Select>
                 </ListItem>
-                <ListItem className="custom-list-item">
+                <ListItem>
                     <Button
                         type="submit"
                         variant="contained"
                         color="secondary"
                         fullWidth
-                        className="custom-button"
+                        sx={{
+                            fontSize: '1rem',
+                            padding: '10px',
+                        }}
                     >
                         Submit
                     </Button>
